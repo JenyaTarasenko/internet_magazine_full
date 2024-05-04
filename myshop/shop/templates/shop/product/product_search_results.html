@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+  <h1>Результат поиска</h1>
+  {% if product_search %}
+    <ul>
+      {% for product in product_search %}
+        <li>
+          <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        </li>
+        <li>{{ product.description }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>Нет продукции </p>
+    {% endif %}
+{% endblock %}

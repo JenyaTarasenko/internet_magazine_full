@@ -1,0 +1,68 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<section>
+  <div class="conteiner px-4">
+      <div class="row">
+
+          <div class="col-md-5">
+              <div class="image_detail">
+                  <img src=" {{ product_detail.image.url }}" class="img-fluid" alt="{{ product_detail.name }}">
+              </div>
+          </div>
+
+          <div class="col-md-7">
+              <h2>Название:{{ product_detail.name }}</h2>
+              <p class="detail_description">{{ product_detail.description }}</p>
+              <hr>
+              <h3 class="detail_price">Цена:{{ product_detail.price }}</h3>
+                <div class="d-grid gap-2 mt-4">
+                  <button type="button" class="btn btn-primary btn-lg btn-xs">Купить</button>
+                </div>
+          </div>
+      </div>
+  </div>
+</section>
+    {% comment %} Секция категории {% endcomment %}
+<div class="p-3 section-title mb-5">
+  <div class="container">
+      <div class="row justify-content-center align-items-center text-center">
+          <div class="col-md-6">
+
+              <h4>Приимущества</h4>
+
+          </div>
+      </div>
+  </div>
+</div>
+ {% comment %} Секция категории {% endcomment %}
+ <section class="advantages bg-light">
+  <div class="conteiner">
+    <div class="row justify-content-center align-items-center text-center">
+      <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
+        <div class="image-product mb-2"><i class="fa-solid fa-headphones"  style="font-size: 40px; color: green;"></i></div>
+        <p>Всегда на связе</p>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
+        <div class="image-product mb-2"><i class="fa-solid fa-percent" style="font-size: 40px; color: green;"></i></div>
+        <p>Скидки</p>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
+        <div class="image-product mb-2"><i class="fa-solid fa-ranking-star"  style="font-size: 40px; color: green;"></i></div>
+        <p>Качество говорит за нас</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+
+

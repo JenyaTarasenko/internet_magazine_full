@@ -1,0 +1,36 @@
+
+<section class="contact-form" style="background-color:rgb(204, 217, 230);">
+
+    <div class="p-3 section-title mb-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-md-6">
+                <h4>Заполни форму</h4>
+            </div>
+        </div>
+    </div>
+  </div>
+ 
+  <div class="container">
+      <div class="row justify-content-center mb-3">
+          <div class="col-md-6">
+              <div class="p-4 rounded">
+                  <form method="post" action="{% url "contact:contact_page" %}">
+                    {% csrf_token %}
+                
+                     <div class="mb-3">
+                          <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="{{ form.email.name }}">
+                          <div id="emailHelp" class="form-text">Введите ваш email</div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">Отправить форму</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+</section>
+{% comment %} Секция категории {% endcomment %}
+
