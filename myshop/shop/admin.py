@@ -3,7 +3,7 @@ from .models import Product, Category, Contact
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'image', 'description', 'slug']
     #используется для того, что- бы указывать поля, значение которых устанавливается автоматически
     prepopulated_fields = {'slug': ('name',)}
 

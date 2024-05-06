@@ -6,11 +6,10 @@
 
 {% comment %} Секция главный экран {% endcomment %}
 <div class="bg-image d-flex justify-content-center align-items-center" style="background-image:url('{% static 'image/tara.jpg' %}'); height: 100vh;">
-
   <div class="conteiner">
     <div class="row">
       <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-center">
-        <h1 style="word-wrap: break-word;">Интернет магазин еды в городе Днепр</h1>
+        <h1 class="text_description" style="word-wrap: break-word; font-weight: 700; font-size: 65px; color:  #1d2ee3">Интернет магазин еды в городе Днепр</h1>
         <p>Свежая еда с доставкой по всему городу Днепр</p>
         <button type="button" class="btn btn-success">Связатся с менеджером</button>
       </div>
@@ -26,7 +25,7 @@
       <div class="row justify-content-center align-items-center text-center">
           <div class="col-md-6">
 
-              <h4>Категории магазина</h4>
+              <h4 style="color: #1d2ee3">Категории магазина</h4>
 
           </div>
       </div>
@@ -34,23 +33,29 @@
 </div>
 {% comment %} Секция категории {% endcomment %}
 
+
 {% comment %} Секция категории {% endcomment %}
-<section mb-5>
-  <div class="container text-center">
-    <div class="row mx-auto justify-content-center">
-      {% for category in categories %}
-        <div class="col-lg-4 col-md-6 col-sm-8 mb-4" style="max-width: 300px;">
-          <div class="card__title" style="height: 150px; background-color: transparent; background-image:url('{% static 'image/tara.jpg' %}'); background-size: cover; border: 1px solid #ddd; border-radius: 10px;">
-            <div class="category-title text-center">
-              <a href="{% url 'shop:product-list-by-category' category.slug  %}" class="text-decoration-none" style="font-size: 18px"><h5>{{ category.name }}</h5></a>
-            </div>
-          </div>
-        </div>
-      {% endfor%}
-    </div>
+<section class="main-content px-5">
+  <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+          {% for category in categories %}
+              <div class="col">
+                  <div class="card h-100" style="border: none;">
+                      <img src="{{ category.image.url }}" class="card-img-top img-fluid" alt="..."  style="object-fit: cover; width: 100%; height: 200px;">
+                      <div class="card-body d-flex flex-column">
+                        <a href="{% url 'shop:product-list-by-category' category.slug %}" style="text-decoration: none;">
+                          <h5 class="card-title">{{ category.name }}</h5>
+                          <p class="card-text">{{ category.description }}</p>
+                        </a> 
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
   </div>
 </section>
 {% comment %} Секция категории {% endcomment %}
+
 
 
 {% comment %} Секция категории {% endcomment %}
@@ -58,13 +63,14 @@
   <div class="container">
       <div class="row justify-content-center align-items-center text-center">
           <div class="col-md-6">
-              <h4>Все товары</h4>
+              <h4 style="color: #1d2ee3">Все товары магазина</h4>
           </div>
       </div>
   </div>
 </div>
 {% comment %} Секция категории {% endcomment %}
 
+{% comment %} Секция карточка {% endcomment %}
 <section class="main-content px-5">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -76,7 +82,7 @@
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description|truncatewords:10 }}</p>
                             <div class="btn mt-auto">
-                                 <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Купить</a>
+                                 <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Описание</a>
                             </div>
                         </div>
                     </div>
@@ -85,6 +91,12 @@
         </div>
     </div>
 </section>
+{% comment %} Секция карточка {% endcomment %}
+
+
+{% comment %} Секция пагинации {% endcomment %}
+{% include 'include/paginator.html' %}
+{% comment %} Секция пагинации {% endcomment %}
 
 
 {% comment %} Секция категории {% endcomment %}
@@ -93,55 +105,59 @@
       <div class="row justify-content-center align-items-center text-center">
           <div class="col-md-6">
 
-              <h4>Почему мы</h4>
-              <p>Lorem {% lorem 1 b random %}</p>
+              <h4 style="color: #1d2ee3">Почему мы</h4>
+              <p>Мы интернет магазин вкусной еды, у нас вы можете заказать продукцию с скидками и доставкой по городу </p>
 
           </div>
       </div>
   </div>
 </div>
 {% comment %} Секция категории {% endcomment %}
+
+
+{% comment %} Секция приимущества {% endcomment %}
 <section class="advantages">
   <div class="conteiner">
     <div class="row justify-content-center align-items-center text-center">
       <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
         <div class="image-product mb-2"><i class="fa-solid fa-headphones"  style="font-size: 40px; color: green;"></i></div>
         <h5>Всегда на связе</h5>
-        <p>Lorem {% lorem 1 b random %}</p>
+        <p>24/7 менеджер на связи</p>
       </div>
 
       <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
         <div class="image-product mb-2"><i class="fa-solid fa-percent" style="font-size: 40px; color: green;"></i></div>
         <h5>Скидки</h5>
-        <p>Lorem {% lorem 1 b random %}</p>
+        <p>Постоянные акции и скидки</p>
       </div>
 
       <div class="col-lg-4 col-md-6 col-sm-8 mb-5">
         <div class="image-product mb-2"><i class="fa-solid fa-ranking-star"  style="font-size: 40px; color: green;"></i></div>
         <h5>Качество говорит за нас</h5>
-        <p>Lorem {% lorem 1 b random %}</p>
+        <p>Качество производителя</p>
       </div>
     </div>
   </div>
 </section>
+{% comment %} Секция приимущества {% endcomment %}
 
 
-  <!--   категории товара -->
- 
+
+{% comment %} Секция часто задаваемые воросы {% endcomment %} 
     <div class="p-3 section-title">
       <div class="container">
           <div class="row justify-content-center align-items-center text-center">
               <div class="col-md-6">
 
-                  <h4>Часто задаваемые вопросы</h4>
+                  <h4 style="color: #1d2ee3">Часто задаваемые вопросы</h4>
 
               </div>
           </div>
       </div>
     </div>
-    <!--   категории товара -->
+{% comment %} Секция часто задаваемые воросы {% endcomment %} 
 
-     <!-- секция вопросы -->
+{% comment %} Секция часто задаваемые воросы {% endcomment %} 
     <div class="conteiner">
       <div class="row justify-content-center align-items-center text-center">
         <div class="col-md-6 mb-5">
@@ -153,7 +169,7 @@
                 </button>
               </h2>
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                <div class="accordion-body">При клике на покупку вы вызываете нашего менеджера</div>
               </div>
             </div>
             <div class="accordion-item">
@@ -163,7 +179,7 @@
                 </button>
               </h2>
               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                <div class="accordion-body">Наш магазин работает 24/7 и вы можете заказать любой интересующий товар связавшись с нашим менеджером</div>
               </div>
             </div>
             <div class="accordion-item">
@@ -173,7 +189,7 @@
                 </button>
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                <div class="accordion-body">Связавшись с нашим менеджером вы можете обговорить стоимость заказа  у нас действуют скидки и акции</div>
               </div>
             </div>
           </div>
@@ -181,11 +197,7 @@
 
       </div>
     </div>
+{% comment %} Секция часто задаваемые воросы {% endcomment %} 
 
-    <!-- секция вопросы -->
-
-
-
-<!-- карта товара -->
 
 {% endblock %}

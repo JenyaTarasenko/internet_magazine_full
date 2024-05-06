@@ -19,7 +19,7 @@
         <div class="row justify-content-center align-items-center text-center">
             <div class="col">
                 <p>Выбранная категория</p>
-                <h1>{{ category_product.first.category.name }}</h1>
+                <h1 style="color: #1d2ee3"  >{{ category_product.first.category.name }}</h1>
             </div>
 
         </div>
@@ -51,7 +51,7 @@
                             <h5 class="card-title">{{ category.name }}</h5>
                             <p class="card-text">{{ category.description|truncatewords:10 }}</p>
                             <div class="btn mt-auto">
-                                 <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Купить</a>
+                                 <a href="{{ category.get_absolute_url }}" class="btn btn-primary">Купить</a>
                             </div>
                         </div>
                     </div>

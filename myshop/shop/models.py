@@ -4,8 +4,11 @@ from django.urls import reverse
 class Category(models.Model):
     """ модель категорий товара"""
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200,
-                            unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    image = models.ImageField(upload_to='category_image/', blank=True, null=True)
+    description = models.TextField(default=None)
+    
+    
     class Meta:
         ordering = ['name']
         indexes = [
@@ -13,6 +16,7 @@ class Category(models.Model):
         ]
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+        
 
     def __str__(self):
         return self.name

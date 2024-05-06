@@ -8,8 +8,8 @@ html {
 body {
    font-family: "Montserrat", sans-serif; 
    font-size: 16px;
-   font-weight: 400;
-   color: #000;
+   font-weight: 500;
+   color: #3a3838;
    background-color: #fff;
    min-width: 320px; /* минимальное разрешение экрана */
 
@@ -23,11 +23,14 @@ body {
 
  }
  
-h1  {
 
-   font-weight: 400;
-   font-size: 60px;
-   color:rgb(204, 217, 230);
+
+.text_description {
+
+   font-weight: 700;
+   font-size: 65px;
+   color: #000;
+
 }
 
 section {
@@ -76,14 +79,20 @@ a:hover {
 /*  карточка категории товара */
 
 .card__title {
+
    display: flex;
    align-items: center;
    justify-content: center;
+
 }
+
 .category-title {
+
    width: 100%;
 }
+
 .card__title h5 {
+
    margin: 0;
 }
 
@@ -115,6 +124,7 @@ a:hover {
    justify-content: center;
    height: 200px;
    padding: 20px;
+
 }
 
 .product-thumb img {
@@ -233,8 +243,8 @@ a:hover {
    .justify-content-center .col-lg-4 {
       max-width: none; /* Убираем максимальную ширину */
       width: 100%; /* Занимаем всю доступную ширину */
-     text-align: center; /* Выравниваем текст по центру */
-     margin-bottom: 15px; /* Добавляем небольшой отступ между карточками */
+      text-align: center; /* Выравниваем текст по центру */
+      margin-bottom: 15px; /* Добавляем небольшой отступ между карточками */
   
    }
  }
